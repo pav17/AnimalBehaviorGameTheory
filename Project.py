@@ -1,17 +1,17 @@
 # Per, Kevin, Timothy, and Tom
 
-def predpreysig (b,trange,k0,k1,phi,p, t, h):
+def predpreysig (signalAttack,trange,stealthKillChance,signalKillChance,signalCost,detectionProbability,predatorTravelTime,predatoHandlingTime):
     """
 
-    behaviours signal and attack - signalAttack
-    prey resident signalling probability - signallingProbability
-    predator attack probability - attackProbability
-    predator's chance of successfully killing a prey that has not detected it - stealthKillChance
-    predator's chance of successfully killing a prey when there is a signal (whether prey1 or prey2 signals) - signalKillChance
-    prey cost of signalling - signalCost
-    prey probability of detecting predator - detectionProbability
-    predator travel time - predatorTravelTime
-    predator handling time - predatoHandlingTime
+    b - behaviours signal and attack - signalAttack
+    s - prey resident signalling probability - signallingProbability
+    a - predator attack probability - attackProbability
+    k0 - predator's chance of successfully killing a prey that has not detected it - stealthKillChance
+    k1 - predator's chance of successfully killing a prey when there is a signal (whether prey1 or prey2 signals) - signalKillChance
+    phi - prey cost of signalling - signalCost
+    p - prey probability of detecting predator - detectionProbability
+    t - predator travel time - predatorTravelTime
+    h - predator handling time - predatoHandlingTime
     """
     signallingProbability = signalAttack[0]
     attackProbability = signalAttack[1]
