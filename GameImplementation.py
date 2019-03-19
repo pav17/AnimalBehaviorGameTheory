@@ -72,6 +72,8 @@ def predPrey(undetectedAttackSuccess, detectedAttackSuccess, detectedAttackChanc
     print("residentPayoff: ", residentPayoff)
     print("mutantPayoff: ", mutantPayoff)
 
+    return(residentPayoff, mutantPayoff)
+
 
 
 def Detection(detectionProbability):
