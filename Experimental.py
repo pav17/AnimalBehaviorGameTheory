@@ -1,4 +1,4 @@
-#import GameImplementation.py as GI
+import GameImplementation as GI
 
 print("How many times?")
 while True:
@@ -13,7 +13,7 @@ while True:
         break
 
 for x in range(n):
-    print("run")
-    #GI.predPrey()
+    #print("run")
+    GI.predPrey()
 
 
