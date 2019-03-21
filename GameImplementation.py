@@ -58,6 +58,7 @@ def predPrey(undetectedAttackSuccess, detectedAttackSuccess, costOfSignalling,
             print("predator attacks")
             residentPayoff = 100-(50*detectedAttackSuccess)
             mutantPayoff = 100-(50*detectedAttackSuccess)
+            endSituation = 7
     elif (residentDetect == True and mutantDetect == False):
         print("Resident detects")
         if (residentSignal == True):
@@ -66,15 +67,18 @@ def predPrey(undetectedAttackSuccess, detectedAttackSuccess, costOfSignalling,
                 print("predator attacks")
                 residentPayoff = 100-((50+costOfSignalling)*detectedAttackSuccess)
                 mutantPayoff = 100-((50-costOfSignalling)*detectedAttackSuccess)
+                endSituation = 8
             elif (preditorAttack == False):
                 print("Predator does not attack")
                 residentPayoff = 100
                 mutantPayoff = 100
+                endSituation = 9
         elif (residentSignal == False):
             print("Resident does not signal")
             print("predator attacks")
             residentPayoff = 100-(50*detectedAttackSuccess)
             mutantPayoff = 100-(50*undetectedAttackSuccess)
+            endSituation = 10
     elif (residentDetect == False and mutantDetect == True):
         print("Mutant detects")
         if (mutantSignal == True):
@@ -83,25 +87,29 @@ def predPrey(undetectedAttackSuccess, detectedAttackSuccess, costOfSignalling,
                 print("predator attacks")
                 residentPayoff = 100-((50-costOfSignalling)*detectedAttackSuccess)
                 mutantPayoff = 100-((50+costOfSignalling)*detectedAttackSuccess)
+                endSituation = 11
             elif (preditorAttack == False):
                 print("Predator does not attack")
                 residentPayoff = 100
                 mutantPayoff = 100
+                endSituation = 12
         elif (mutantSignal == False):
             print("Mutant does not signal")
             print("predator attacks")
             residentPayoff = 100-(50*undetectedAttackSuccess)
             mutantPayoff = 100-(50*detectedAttackSuccess)
+            endSituation = 13
     elif (residentDetect == False and mutantDetect == False):
         print("Neither detects/signals")
         print("predator attacks")
         residentPayoff = 100-(50*undetectedAttackSuccess)
         mutantPayoff = 100-(50*undetectedAttackSuccess)
+        endSituation = 14
 
     print("residentPayoff: ", residentPayoff)
     print("mutantPayoff: ", mutantPayoff)
 
-    return(residentPayoff, mutantPayoff)
+    return(residentPayoff, mutantPayoff, endSituation)
 
 
 
