@@ -1,6 +1,7 @@
 import random as r
 
-def predPrey(undetectedAttackSuccess, detectedAttackSuccess, detectedAttackChance, costOfSignalling, residentSignalChance, mutantSignalChance):
+def predPrey(undetectedAttackSuccess, detectedAttackSuccess, detectedAttackChance, costOfSignalling,
+    residentSignalChance, mutantSignalChance, detectionProbability, attackProbablility):
     if undetectedAttackSuccess < detectedAttackSuccess:
         print("undetectedAttackSuccess must be greater than detectedAttackSuccess")
         sys.exit()
@@ -10,9 +11,9 @@ def predPrey(undetectedAttackSuccess, detectedAttackSuccess, detectedAttackChanc
         sys.exit()
 
     r.seed()
-    residentDetect, mutantDetect = Detection(detectionProbability = 40)
+    residentDetect, mutantDetect = Detection(detectionProbability)
     residentSignal, mutantSignal = Signal(residentSignalChance, mutantSignalChance)
-    preditorAttack = Attack(attackProbablility = 40)
+    preditorAttack = Attack(attackProbablility)
 
     if (residentDetect == True and mutantDetect == True):
         if (residentSignal == True and mutantSignal ==True):
@@ -122,4 +123,4 @@ def Signal(residentSignalChance, mutantSignalChance):
 
 
 if __name__ == "__main__":
-    predPrey(60,30,40,0.2,30,50)
+    predPrey(60,30,40,0.2,30,50,40,40)
