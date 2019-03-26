@@ -2,6 +2,8 @@ import GameImplementation as GI
 
 def Main(undetectedAttackSuccess, detectedAttackSuccess, costOfSignalling,
     residentSignalChance, mutantSignalChance, detectionProbability, attackProbablility):
+    residentSignalChance = int(input(residentSignalChance))
+    mutantSignalChance = int(input(mutantSignalChance))
     print("How many times?")
     while True:
         try:
@@ -26,8 +28,14 @@ def Main(undetectedAttackSuccess, detectedAttackSuccess, costOfSignalling,
         mutantPayoffList.append(mutantPayoff)
         endSituationList.append(endSituation)
 
-    print("Total resident payoff: " , sum(residentPayoffList), "for an average payoff of: ", sum(residentPayoffList)/n)
+    print("\nTotal resident payoff: " , sum(residentPayoffList), "for an average payoff of: ", sum(residentPayoffList)/n)
     print("Total mutant payoff: " , sum(mutantPayoffList), "for an average payoff of: ", sum(mutantPayoffList)/n)
+
+    if (sum(residentPayoffList) > sum(mutantPayoffList)):
+        print("\nResident was better off.")
+    else:
+        print("\nMutant was better off.")
+
 
     situation1Count = endSituationList.count(1)
     situation2Count = endSituationList.count(2)
@@ -44,7 +52,7 @@ def Main(undetectedAttackSuccess, detectedAttackSuccess, costOfSignalling,
     situation13Count = endSituationList.count(13)
     situation14Count = endSituationList.count(14)
 
-    print("Both detected, both signaled, and the predator attacked", situation1Count, "times.")
+    print("\nBoth detected, both signaled, and the predator attacked", situation1Count, "times.")
     print("Both detected, both signaled, and the predator didn't attack", situation2Count, "times.")
     print("Both detected, resident signaled, and the predator attacked", situation3Count, "times.")
     print("Both detected, resident signaled, and the predator didn't attack", situation4Count, "times.")
@@ -60,4 +68,4 @@ def Main(undetectedAttackSuccess, detectedAttackSuccess, costOfSignalling,
     print("Neither detected, neither signaled, and the predator attacked", situation14Count, "times.")
 
 
-Main(60,30,20,30,50,50,50)
+Main(60,30,20,"Enter the resident signal chance: ","Enter the mutant signal chance: ",50,50)
